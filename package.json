@@ -1,0 +1,36 @@
+{
+  "name": "ca-db-mongo-native-adapter",
+  "version": "0.0.1",
+  "description": "MongoDB plugin for Clean Architecture using native mongo driver",
+  "main": "index.js",
+  "scripts": {
+    "lint": "standard --fix",
+    "test": "nyc ava 'src/**/*.test.js' --verbose"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jordandenison/CA-REST-express-adapter.git"
+  },
+  "author": "Jordan Denison",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jordandenison/CA-REST-express-adapter/issues"
+  },
+  "homepage": "https://github.com/jordandenison/CA-REST-express-adapter#readme",
+  "dependencies": {
+    "bluebird": "^3.4.7",
+    "lodash": "^4.17.4",
+    "mongodb": "^2.2.22",
+    "node-uuid": "^1.4.7",
+    "winston": "^2.3.1"
+  },
+  "devDependencies": {
+    "ava": "^0.17.0",
+    "nodemon": "^1.11.0",
+    "nyc": "^10.0.0",
+    "proxyquire": "^1.7.10",
+    "sinon": "^1.17.7",
+    "standard": "^8.6.0",
+    "supertest": "^2.0.1"
+  }
+}
