@@ -9,8 +9,7 @@ const Promise = require('bluebird')
 /**
  * Internal dependencies
  */
-const { convertId, setDefaultValues } = require('./src/helpers')
-const { NotFoundError } = require('./src/errors')
+const { convertId, setDefaultValues } = require('./helpers')
 
 let domains
 let dbConnection
@@ -52,7 +51,7 @@ const getModels = (model, query = {}, { page, limit, sort }) => {
 }
 
 const throwIfNotModified = res => {
-  if (res.modifiedCount !== 1) { throw new NotFoundError() }
+  if (res.modifiedCount !== 1) { throw new Error('model not found') }
 }
 
 const mongo = {
@@ -93,7 +92,7 @@ const mongo = {
     return new Promise((resolve, reject) => {
       dbConnection.collection(model).findOne(convertId('toMongo')(assign(find, { active: true })), (e, data) => {
         if (e) { return reject(e) }
-        if (!data) { return reject(new NotFoundError()) }
+        if (!data) { return reject(new Error('model not found')) }
 
         resolve(data)
       })
